@@ -20,11 +20,13 @@ class AdvCalculator extends Calculator{
 
 public class Main {
     public static void main(String[] args) {
-        AdvCalculator c1 = new AdvCalculator();
+        Calculator c1 = new AdvCalculator();  // will only use methods that exist in Calculator (but will use AdvCalculator Implementation)
         System.out.println(c1.sum(12, 69));
         System.out.println(c1.sub(12,6));
-        System.out.println(c1.prod(2,4));
-        System.out.println(c1.div(4,4));
+        System.out.println(c1.prod(2,4)); // error as does not exist in Calculator
+        System.out.println(c1.div(4,4)); // error as does not exist in Calculator
 
     }
 }
+
+
