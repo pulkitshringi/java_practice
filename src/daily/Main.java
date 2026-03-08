@@ -1,22 +1,34 @@
 package daily;
 
-class A{
-    public void func(){
-        System.out.println("I am func");
+interface Computer{
+    void coding();
+}
+class Desktop implements Computer{
+    @Override
+      public void coding(){
+        System.out.println("Coding from Desktop");
+    }
+}
+
+class Laptop implements Computer{
+    @Override
+    public void coding(){
+        System.out.println("Coding from laptop");
+    }
+}
+
+class Developer{
+    public void writeCode(Computer obj){ 
+        obj.coding();
     }
 }
 
 public class Main{
     public static void main(String[] args) {
-        A obj = new A(){    // anonymous inner class
-            @Override
-            public void func(){
-                System.out.println("I'm func (updated)");
-            }
-        };
-        obj.func();
-
-        A obj2 = new A(); // however remains same for other instance
-        obj2.func();
+    Developer obj = new Developer();
+    Computer comp = new Desktop();
+     obj.writeCode(comp);
+     comp = new Laptop();
+     obj.writeCode(comp);
     } 
 }
