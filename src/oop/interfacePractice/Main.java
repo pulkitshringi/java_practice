@@ -8,7 +8,7 @@ abstract class First{
     }
 }
 
-abstract class Second extends First{
+ abstract class Second extends First{
     @Override
     public void func(){
         System.out.println("I'm func");
