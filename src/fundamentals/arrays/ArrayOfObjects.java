@@ -1,21 +1,26 @@
 package fundamentals.arrays;
 
-class Other{
-    private int data;
-    public void setData(int data){
-        this.data = data;
-        System.out.println(this.data);
+
+class Another{
+    public int no;
+    public void hello(){
+        System.out.println("I say hello when i'm in mood. " + no);
     }
 }
 
-public class ArrayOfObjects {
+public class ArrayOfObjects{     
     public static void main(String[] args) {
-        Other[] arr = new Other[3];
-        arr[0] = new Other();
-        arr[0].setData(69);
-        arr[1] = new Other();
-        arr[1].setData(23);
-        arr[2] = new Other();
-        arr[2].setData(44);
+     Another[] arr = new Another[3];
+     arr[0] = new Another();
+     arr[0].no = 69;
+
+     arr[1] = new Another();
+     arr[1].no = 42;
+
+     arr[2] = new Another();
+
+    for(Another obj: arr){
+        obj.hello();
     }
+}
 }
