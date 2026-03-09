@@ -1,34 +1,22 @@
 package daily;
 
-interface Computer{
-    void coding();
-}
-class Desktop implements Computer{
-    @Override
-      public void coding(){
-        System.out.println("Coding from Desktop");
+interface A{
+    void show(); // public abstract
+    default void show2(){  // use default to add non abstract method
+        System.out.println("i can have body");
     }
 }
-
-class Laptop implements Computer{
+class B implements A{
     @Override
-    public void coding(){
-        System.out.println("Coding from laptop");
-    }
-}
-
-class Developer{
-    public void writeCode(Computer obj){ 
-        obj.coding();
+    public void show(){
+        System.out.println("show");
     }
 }
 
 public class Main{
     public static void main(String[] args) {
-    Developer obj = new Developer();
-    Computer comp = new Desktop();
-     obj.writeCode(comp);
-     comp = new Laptop();
-     obj.writeCode(comp);
+        A obj = new B();
+        obj.show();
+        obj.show2();
     } 
 }

@@ -1,18 +1,23 @@
 package oop.others;
 import java.util.Arrays;
 
-enum Status{
-    Running, Success, Waiting, Failed
+enum Laptop{
+    HP(30000), Macbook(69000), Asus(88000), Chromebook(12000);
+
+    private int price;
+    private Laptop(int price){ // enum requires private constructor instead of public (enum treats package-private also as private)
+        this.price = price;
+    }
+    public int getPrice(){
+        return price;
+    }
 };
 
 public class EnumPractice {
     public static void main(String[] args){
-        Status s1 = Status.Failed;
-        switch(s1){
-            case Running: System.out.println("We are running"); break;
-            case Waiting: System.out.println("we are waiting");break;
-            case Success: System.out.println("Website has loaded"); break;
-            default: System.out.println("Website has failed");
-        }
+       Laptop[] laps = Laptop.values();
+       for(Laptop lap: laps){
+       System.out.println(lap + " : " + lap.getPrice() + "  " + lap.ordinal());
+       }
     }
 }
