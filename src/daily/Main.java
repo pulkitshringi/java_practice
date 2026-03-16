@@ -1,22 +1,26 @@
 package daily;
 
-interface A{
-    void show(); // public abstract
-    default void show2(){  // use default to add non abstract method
-        System.out.println("i can have body");
-    }
-}
-class B implements A{
-    @Override
-    public void show(){
-        System.out.println("show");
-    }
-}
+import java.util.Arrays;
 
-public class Main{
-    public static void main(String[] args) {
-        A obj = new B();
-        obj.show();
-        obj.show2();
-    } 
+class Main{
+    public static void main(String[] args){
+        int[] arr = new int[3];
+        int j = 0;
+        int i;
+        try {
+            arr[3] = 1;
+        } 
+        catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("you are accessing out of index :)");
+            System.out.println(e);
+        }
+        try{            
+            i = 10/j;
+        }
+        catch(ArithmeticException e){
+            System.out.println("dividing by zero :/");
+            System.out.println(e);
+        }
+        System.out.println(Arrays.toString(arr));
+    }
 }
