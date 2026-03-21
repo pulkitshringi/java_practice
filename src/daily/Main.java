@@ -1,30 +1,25 @@
 package daily;
-import java.io.FileReader;
 
-class Other{
-    public void d() throws ClassNotFoundException{
-        Class.forName("daily.Main"); // no error as Class 'Main' exists
-    }
-    public void e() throws ClassNotFoundException{
-        Class.forName("daily.Animal"); // error as class does not exist
+class A extends Thread{
+    public void run(){
+        for (int i = 0; i < 10; i++) {
+            System.out.println("hii");
+        }
     }
 }
+class B extends Thread{
+    public void run(){
+        for (int i = 0; i < 10; i++) {
+            System.out.println("hello");
+        }
+    }
+}
+
 class Main{
     public static void main(String[] args){
-
-        Other obj = new Other();
-        try {
-            obj.d();
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            obj.e();
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        System.out.println("last statement");
+            A obj1 = new A();
+            B obj2 = new B();
+            obj1.start();
+            obj2.start();
+        } 
     }
-}
