@@ -1,10 +1,10 @@
-package daily;
+package fundamentals;
 
-import java.util.*;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 
-class Main {
-
+public class Stream {
+    
     public static void main(String[] args) {
         List<Integer> nums = new ArrayList<>();
         for (int i = 0; i < 10_000; i++) {
@@ -40,4 +40,4 @@ class Main {
         System.out.println(sum2);
 
     }
-};
+}
