@@ -1,43 +1,40 @@
 package daily;
-
 import java.util.*;
-import java.util.stream.Stream;
+
+class Student{
+    private String name;
+    private int age;
+    // constructor 
+    public Student(String name) {
+        this.name = name;
+        this.age = 69;
+    }
+    // getters
+    public String getName() {
+        return name;
+    }
+    // setters
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    @Override
+    public String toString() {
+        return "Student [name=" + name + ", age=" + age + "]";
+    }
+    
+}
 
 class Main {
-
     public static void main(String[] args) {
-        List<Integer> nums = new ArrayList<>();
-        for (int i = 0; i < 10_000; i++) {
-            nums.add((int) (Math.random() * 100) + 1); // adding 10 thousand random values.
-        }
-        // sequential stream (normal)
-        long startSeq = System.currentTimeMillis();
-        int sum1 = nums.stream().mapToInt(x -> {
-            try {
-                Thread.sleep(1); // waiting 1 milliseconds 
-            } catch (Exception e) {
-            };
-            return x * 2;
-
-        }).sum();
-        long endSeq = System.currentTimeMillis();
-
-        // parallel stream
-        long startPara = System.currentTimeMillis();
-        int sum2 = nums.parallelStream().mapToInt(x -> {
-            try {
-                Thread.sleep(1); // waiting 1 milliseconds 
-            } catch (Exception e) {
-            };
-            return x * 2;
-        }
-        ).sum();
-        long endPara = System.currentTimeMillis();
-
-        System.out.println("Time taken by sequential stream = " + (endSeq - startSeq) + " miliseconds");
-        System.out.println("Time taken by parallel stream = " + (endPara - startPara) + " miliseconds");
-        System.out.println(sum1);
-        System.out.println(sum2);
-
+        List<String> l1 = new ArrayList<>(Arrays.asList("Pooki", "Sophy", "Mitu"));
+        List<Student> s1 = new ArrayList<>();
+       s1 = l1.stream().map(Student::new).toList(); 
+       System.out.println(s1);
     }
 };
