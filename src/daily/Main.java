@@ -3,12 +3,18 @@ import java.io.*;
 import java.util.Arrays;
 
 class Main {
-    public static void main(String[] args) {
-       String filepath = "src/daily/pooki.txt";
-       String dirpath = "src/daily/pookiFolder";
-       String rootFolder = "src";
-       File file1 = new File(rootFolder);
-       String[] totalFiles = file1.list();
-       System.out.println(Arrays.toString(totalFiles));
+    public static void main(String[] args) throws IOException {
+            File file1 = new File("src/daily/pooki.txt");
+            FileWriter writer = new FileWriter(file1);
+            try{
+            writer.write("I have overriden the text :) \n");
+            writer.write("I'm in new line hehe\n"); 
+            writer.write(97); 
+            }
+            catch(Exception e){}
+            finally{
+                writer.close(); // always close it at end 
+            };
+
        }    
 };
