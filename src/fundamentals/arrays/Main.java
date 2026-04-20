@@ -15,5 +15,6 @@ class Main{
                 System.out.print(y + " ");
             }
         }
+        sc.close();
     }
 }
